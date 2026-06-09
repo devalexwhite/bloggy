@@ -11,6 +11,9 @@ export const siteConfig: SiteConfig = {
 			year: "numeric",
 		},
 	},
+    webmentions: {
+      link: "thatalexguy.dev"
+    },
 	description:
 		"I'm Alex, this is my site. It's my place to write, create web experiments and share things I enjoy.",
 	lang: "en-US",

@@ -65,7 +65,7 @@ const siteUrl = (path: string) => absoluteUrl(path, Astro.site);
 			)}
 			{profile?.email && (
 				<>
-					<a href={`mailto:${profile.email}`}>Email</a>
+					<a href={`mailto:${profile.email}`} rel="me">Email</a>
 					<span class="sep">·</span>
 				</>
 			)}
