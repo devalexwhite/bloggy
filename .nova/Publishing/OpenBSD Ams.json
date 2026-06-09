@@ -1,0 +1,8 @@
+{
+  "identifier" : "2881E399-D8D7-41CF-9359-9E1C4B45B868",
+  "localPath" : "dist",
+  "remotePath" : "\/var\/www\/htdocs",
+  "remoteURL" : "https:\/\/thatalexguy.dev",
+  "server" : "OpenBSD Ams",
+  "usesPublishing" : true
+}
