@@ -2,7 +2,7 @@ import type { SiteConfig } from "@/types";
 import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
 
 export const siteConfig: SiteConfig = {
-	author: "Your Name",
+	author: "Alex White",
 	date: {
 		locale: "en-US",
 		options: {
@@ -12,21 +12,18 @@ export const siteConfig: SiteConfig = {
 		},
 	},
 	description:
-		"A minimal personal blog & writing space, built with Astro. Notes on whatever I happen to be thinking about — usually some mix of code, design, and the occasional half-formed idea. Replace this paragraph in src/site.config.ts to make the site your own.",
+		"I'm Alex, this is my site. It's my place to write, create web experiments and share things I enjoy.",
 	lang: "en-US",
 	ogLocale: "en_US",
 	sortPostsByUpdatedDate: false,
-	title: "Astro Sienna",
-	hideThemeCredit: false,
+	title: "ThatAlexGuy",
+	hideThemeCredit: true,
 	profile: {
-		name: "John Doe",
-		email: "john@example.com",
-		github: "https://github.com/example",
-		linkedin: "https://www.linkedin.com/in/example/",
-		jobTitle: "Software Engineer",
-		employer: "Example Inc.",
-		employerUrl: "https://example.com",
-		alumni: "Example University",
+		name: "Alex White",
+		email: "hi@thatalexguy.dev",
+		codeberg: "https://codeberg.org/thatalexguy",
+		jobTitle: "Engineering Manager",
+		alumni: "Ohio University",
 		avatar: "/avatar.png",
 	},
 	// Uncomment & fill in to enable Giscus comments on every post.
@@ -37,10 +34,10 @@ export const siteConfig: SiteConfig = {
 	// 	categoryId: "...",
 	// },
 	// Uncomment to enable analytics. Both providers load via Partytown.
-	// analytics: {
-	// 	googleAnalyticsId: "G-XXXXXXX",
-	// 	goatcounterUrl: "https://your-handle.goatcounter.com/count",
-	// },
+	analytics: {
+		// googleAnalyticsId: "G-XXXXXXX",
+		goatcounterUrl: "https://thatalexguy.goatcounter.com/count",
+	},
 };
 
 export const menuLinks: { path: string; title: string }[] = [

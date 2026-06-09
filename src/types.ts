@@ -3,8 +3,8 @@ export interface ProfileConfig {
 	name: string;
 	/** Contact email shown in About-page socials. Omit to hide. */
 	email?: string;
-	/** Profile URL on GitHub. Leave empty to hide. */
-	github?: string;
+	/** Profile URL on Codeberg. Leave empty to hide. */
+	codeberg?: string;
 	/** Profile URL on LinkedIn. Leave empty to hide. */
 	linkedin?: string;
 	/** Twitter / X profile URL. Leave empty to hide. */

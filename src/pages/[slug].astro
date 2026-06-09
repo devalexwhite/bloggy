@@ -1,0 +1,82 @@
+---
+import { getCollection, render } from "astro:content";
+import PageLayout from "@/layouts/Base.astro";
+import { siteConfig } from "@/site-config";
+import { absoluteUrl } from "@/utils/path";
+import { Schema } from "astro-seo-schema";
+import "@/styles/post-article.css";
+
+export async function getStaticPaths() {
+	const pages = await getCollection("page");
+	return pages.map((page) => ({
+		params: { slug: page.id },
+		props: { entry: page },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const profile = siteConfig.profile;
+const authorName = profile?.name ?? siteConfig.author;
+
+const meta = {
+	description: entry.data.description ?? `${authorName} — ${entry.data.title}.`,
+	title: entry.data.title,
+};
+
+const personSameAs = [
+	profile?.linkedin,
+	profile?.codeberg,
+	profile?.twitter,
+	profile?.mastodon,
+].filter((s): s is string => Boolean(s));
+
+const avatarUrl = profile?.avatar ? absoluteUrl(profile.avatar, Astro.site) : undefined;
+---
+
+<Schema
+	item={{
+		"@context": "https://schema.org",
+		"@type": entry.id === "about" ? "ProfilePage" : "WebPage",
+		mainEntity: {
+			"@type": "Person",
+			name: authorName,
+			...(avatarUrl ? { image: avatarUrl } : {}),
+			...(profile?.jobTitle ? { jobTitle: profile.jobTitle } : {}),
+			...(profile?.employer
+				? {
+						worksFor: {
+							"@type": "Organization",
+							name: profile.employer,
+							...(profile.employerUrl ? { url: profile.employerUrl } : {}),
+						},
+					}
+				: {}),
+			...(profile?.alumni
+				? {
+						alumniOf: {
+							"@type": "CollegeOrUniversity",
+							name: profile.alumni,
+						},
+					}
+				: {}),
+			...(personSameAs.length ? { sameAs: personSameAs } : {}),
+		},
+	}}
+/>
+
+<PageLayout meta={meta}>
+	<section class="page-content" aria-labelledby="page-label">
+		<div class="section-label" id="page-label">{entry.data.title}</div>
+		<div class="post-article">
+			<Content />
+		</div>
+	</section>
+</PageLayout>
+
+<style>
+	.page-content {
+		margin-bottom: 64px;
+	}
+</style>
