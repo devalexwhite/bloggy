@@ -1,6 +1,13 @@
 ---
 title: About
 description: About That Alex Guy
+suggestedLinks:
+- title: "What I use"
+  url: "/what-i-use"
+- title: "Support me"
+  url: "/support"
+- title: "Hire me"
+  url: "/hire-me"
 ---
 
 ### Who is That Alex Guy?

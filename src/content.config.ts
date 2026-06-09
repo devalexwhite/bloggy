@@ -31,6 +31,14 @@ const post = defineCollection({
 				.string()
 				.optional()
 				.transform((str) => (str ? new Date(str) : undefined)),
+			suggestedLinks: z
+				.array(
+					z.object({
+						title: z.string(),
+						url: z.string(),
+					})
+				)
+				.optional(),
 		}),
 });
 
@@ -39,6 +47,14 @@ const page = defineCollection({
 	schema: z.object({
 		title: z.string().max(120),
 		description: z.string().max(160).optional(),
+		suggestedLinks: z
+			.array(
+				z.object({
+					title: z.string(),
+					url: z.string(),
+				})
+			)
+			.optional(),
 	}),
 });
 

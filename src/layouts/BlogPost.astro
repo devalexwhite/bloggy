@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 
 import ShareButtons from "@/components/blog/ShareButtons.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
+import SuggestedLinks from "@/components/SuggestedLinks.astro";
 import { getAllPosts, getPostSortDate, sortMDByDate } from "@/data/post";
 import { siteConfig } from "@/site-config";
 import { formatBylineDate, formatEyebrowDate } from "@/utils/date";
@@ -24,7 +25,7 @@ const idx = sortedAll.findIndex((p) => p.id === post.id);
 const newerPost = idx > 0 ? sortedAll[idx - 1] : undefined;
 const olderPost = idx >= 0 && idx < sortedAll.length - 1 ? sortedAll[idx + 1] : undefined;
 const {
-	data: { coverImage, description, ogImage, publishDate, title, updatedDate, tags, draft },
+	data: { coverImage, description, ogImage, publishDate, title, updatedDate, tags, draft, suggestedLinks },
 	id: slug,
 } = post;
 const socialImage = ogImage ?? `/og-image/${slug}.png`;
@@ -126,6 +127,13 @@ const giscusThemes = import.meta.env.PROD
 			<article class="post-article">
 				<slot />
 			</article>
+
+			{suggestedLinks && suggestedLinks.length > 0 && (
+				<section class="py-10 my-10" style="border-top: 1px solid var(--hairline);">
+					<div class="section-label">Suggested links</div>
+					<SuggestedLinks links={suggestedLinks} />
+				</section>
+			)}
 
 			<ShareButtons title={title} url={postUrl} description={description} />
 

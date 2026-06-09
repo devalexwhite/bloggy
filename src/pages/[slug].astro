@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import PageLayout from "@/layouts/Base.astro";
+import SuggestedLinks from "@/components/SuggestedLinks.astro";
 import { siteConfig } from "@/site-config";
 import { absoluteUrl } from "@/utils/path";
 import { Schema } from "astro-seo-schema";
@@ -72,6 +73,12 @@ const avatarUrl = profile?.avatar ? absoluteUrl(profile.avatar, Astro.site) : un
 		<div class="post-article">
 			<Content />
 		</div>
+		{entry.data.suggestedLinks && entry.data.suggestedLinks.length > 0 && (
+			<section class="py-10 my-10" style="border-top: 1px solid var(--hairline);">
+				<div class="section-label">Suggested links</div>
+				<SuggestedLinks links={entry.data.suggestedLinks} />
+			</section>
+		)}
 	</section>
 </PageLayout>
 
