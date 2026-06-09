@@ -3,7 +3,7 @@ title: The bike gods are against me
 publishDate: '2026-06-01'
 description: I started cycling about 3 years ago. We were eating at a Pho restaurant
   and decided to stop in to the bike shop next door. One thing led to another...
-tags: []
+tags: ["cycling", "life"]
 ---
 
 I started cycling about 3 years ago. We were eating at a Pho restaurant and decided to stop in to the bike shop next door. One thing led to another and I walked out with a Vaast A/1 gravel bike a few weeks later.

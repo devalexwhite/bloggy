@@ -3,7 +3,7 @@ title: Deleting everything but this site
 publishDate: '2026-05-24'
 description: This site has suddenly undergone a large amount of changes! It looks
   different, it's built differently, it has more (non-blog) content, and it runs...
-tags: []
+tags: ["announcements"]
 ---
 
 This site has suddenly undergone a large amount of changes! It looks different, it's built differently, it has more (non-blog) content, and it runs on freedom (by that I mean [OpenBSD servers located in Amsterdam](https://openbsd.amsterdam)). Let's pretend you have questions and here are my answers:

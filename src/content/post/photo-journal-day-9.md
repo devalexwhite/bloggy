@@ -3,7 +3,7 @@ title: Photo journal day 9
 publishDate: '2026-06-02'
 description: I took amuchneeded day off yesterday and spent time outside. The day
   started with processing photos and posting the photos forday 8. After I drove ...
-tags: []
+tags: ["photography"]
 ---
 
 I took a **much** needed day off yesterday and spent time outside. The day started with processing photos and posting the photos for [day 8](https://thatalexguy.dev/blog/photo-journal-day-8.html). After I drove out to one of my favorite small towns and grabbed a sandwich that a small deli. Sandwich in hand, I drove to a metro park to eat and go hiking. I followed that up with swimming and eventually cycling, my version of a triathlon haha.

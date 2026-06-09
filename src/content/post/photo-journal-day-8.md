@@ -2,7 +2,7 @@
 title: Photo journal - day 8
 publishDate: '2026-06-01'
 description: Spider warning!
-tags: []
+tags: ["photography"]
 ---
 
 **Spider warning!**

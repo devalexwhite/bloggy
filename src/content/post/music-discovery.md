@@ -3,7 +3,7 @@ title: Music discovery
 publishDate: '2026-05-23'
 description: Recently stumbled upon a couple of artists that I've been enjoying, thought
   I'd share. It's no surprise I've been going down the rabbit hole of pro...
-tags: []
+tags: ["life"]
 ---
 
 Recently stumbled upon a couple of artists that I've been enjoying, thought I'd share. It's no surprise I've been going down the rabbit hole of protest music...
