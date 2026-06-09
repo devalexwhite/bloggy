@@ -87,7 +87,7 @@ export default defineConfig({
 				insertManifestLink: false,
 			},
 		}),
-		(await import("@playform/compress")).default(),
+		// (await import("@playform/compress")).default(),
 	],
 	markdown: {
 		rehypePlugins: [

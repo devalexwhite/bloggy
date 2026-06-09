@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
 		},
 	},
     webmentions: {
-      link: "thatalexguy.dev"
+      link: "https://webmention.io/thatalexguy.dev/webmention"
     },
 	description:
 		"I'm Alex, this is my site. It's my place to write, create web experiments and share things I enjoy.",
