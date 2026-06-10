@@ -12,7 +12,8 @@ export const siteConfig: SiteConfig = {
 		},
 	},
     webmentions: {
-      link: "https://webmention.io/thatalexguy.dev/webmention"
+      link: "https://webmention.io/thatalexguy.dev/webmention",
+      pingback: "https://webmention.io/thatalexguy.dev/xmlrpc"
     },
 	description:
 		"I'm Alex, this is my site. It's my place to write, create web experiments and share things I enjoy.",
