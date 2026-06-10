@@ -25,3 +25,6 @@ pnpm-debug.log*
 .astro
 .idea
 temp/
+
+# Build generated dithered images
+*-dithered.webp

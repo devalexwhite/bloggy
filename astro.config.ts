@@ -20,6 +20,7 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeKatex from "rehype-katex";
 import rehypeUnwrapImages from "rehype-unwrap-images";
+import { rehypeDither } from "./src/plugins/rehype-dither";
 
 // Defaults to root; the deploy workflow sets BASE_PATH for subpath hosts
 // (GitHub Pages project sites). See "Base path" in the README.
@@ -27,7 +28,7 @@ const BASE_PATH = process.env.BASE_PATH || "/";
 const START_URL = BASE_PATH.endsWith("/") ? BASE_PATH : `${BASE_PATH}/`;
 
 export default defineConfig({
-	site: "https://anjaygoel.github.io",
+	site: "https://thatalexguy.dev",
 	base: BASE_PATH,
 	image: {
 		domains: ["webmention.io"],
@@ -92,6 +93,7 @@ export default defineConfig({
 	markdown: {
 		rehypePlugins: [
 			rehypeUnwrapImages,
+			rehypeDither,
 			[rehypeBasePath, { base: BASE_PATH }],
 			// rehype-katex must run before rehype-external-links so the latter
 			// doesn't rewrite anchors inside katex's emitted DOM.

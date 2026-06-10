@@ -31,6 +31,7 @@ const post = defineCollection({
 				.string()
 				.optional()
 				.transform((str) => (str ? new Date(str) : undefined)),
+			dither: z.boolean().default(true).optional(),
 			suggestedLinks: z
 				.array(
 					z.object({

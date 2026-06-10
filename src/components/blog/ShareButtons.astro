@@ -179,7 +179,10 @@ const linkedinHref = `https://www.linkedin.com/sharing/share-offsite/?url=${enco
 				input.value = url;
 				document.body.appendChild(input);
 				input.select();
-				try { document.execCommand("copy"); } catch {}
+				try {
+					// @ts-ignore: document.execCommand is deprecated but used as a fallback
+					document.execCommand("copy");
+				} catch {}
 				input.remove();
 			}
 			btn.dataset.copied = "true";
