@@ -2,12 +2,21 @@
 @import "@fontsource-variable/newsreader/wght.css";
 @import "@fontsource-variable/newsreader/wght-italic.css";
 @import "@fontsource-variable/inter/wght.css";
-@import "@fontsource-variable/jetbrains-mono/wght.css";
+/* @import "@fontsource-variable/jetbrains-mono/wght.css"; */
 @import "katex/dist/katex.min.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Define the Regular weight (400) */
+@font-face {
+  font-family: 'DepatureMono';
+  src: url('/fonts/DepartureMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer base {
 	html {
@@ -26,7 +35,7 @@
 	:root {
 		--font-serif: "Newsreader Variable", "Iowan Old Style", Georgia, serif;
 		--font-sans: "Inter Variable", -apple-system, system-ui, sans-serif;
-		--font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
+		--font-mono: "DepatureMono", ui-monospace, SFMono-Regular, monospace;
 
 		/* Layout tokens — shared across home, posts archive, and article pages */
 		--reading-width: 64ch;          /* article body & long prose blocks */
@@ -148,7 +157,7 @@
 .timeline .post-rail {
 	position: relative;
 	--rail-pad-top: 4px;
-	--rail-date-size: 11.5px;
+	--rail-date-size: 11px;
 	--rail-date-lh: 1.4;
 	padding-top: var(--rail-pad-top);
 	padding-right: 18px;
@@ -312,7 +321,7 @@ ul.work-list .stack {
 }
 ul.work-list .badge {
 	font-family: var(--font-mono);
-	font-size: 10px;
+	font-size: 11px;
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
 	color: hsl(var(--theme-accent));

@@ -82,7 +82,7 @@
 
 	.post-article :not(pre) > code {
 		font-family: var(--font-mono);
-		font-size: 14.5px;
+		font-size: 22px;
 		background: var(--paper);
 		border: 1px solid var(--hairline);
 		padding: 1px 6px;
@@ -173,7 +173,7 @@
 	.post-article ol li::marker {
 		color: hsl(var(--theme-accent));
 		font-family: var(--font-mono);
-		font-size: 14px;
+		font-size: 22px;
 	}
 
 	.post-article li > p {
@@ -246,7 +246,7 @@
 		display: inline-flex;
 		align-items: center;
 		font-family: var(--font-mono);
-		font-size: 0.7em;
+		font-size: 11px;
 		color: hsl(var(--theme-accent));
 		opacity: 0;
 		transition: opacity 0.18s ease;
