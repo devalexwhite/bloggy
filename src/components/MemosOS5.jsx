@@ -77,7 +77,7 @@ export default function MemosOS5() {
 		},
 		{
 			id: 3,
-			text: 'Credits for tools used in this demo:\n\nRounded pixel corner generator by Luke Bonaccorsi https://pixelcorners.lukeb.co.uk/\n\nPalm OS font by Damien Guard https://fontstruct.com/fontstructors/38093/damieng',
+			text: 'Credits for tools used in this demo:\n\nRounded pixel corner generator by Luke Bonaccorsi https://pixelcorners.lukeb.co.uk/\n\nPalm OS font by Damien Guard https://fontstruct.com/fontstructors/38093/damieng\n\nCloudPilot https://cloudpilot-emu.github.io/',
 			category: 'Business',
 		},
 	]);

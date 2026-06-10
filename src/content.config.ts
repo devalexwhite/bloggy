@@ -40,6 +40,7 @@ const post = defineCollection({
 					})
 				)
 				.optional(),
+			readOnWeb: z.boolean().default(false).optional(),
 		}),
 });
 
