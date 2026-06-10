@@ -1,0 +1,119 @@
+---
+// SubscribeForm.astro
+---
+<div class="subscribe-container">
+	<div class="section-label">Subscribe</div>
+	<form
+		action="https://buttondown.com/api/emails/embed-subscribe/thatalexguy"
+		method="post"
+		class="embeddable-buttondown-form subscribe-form"
+		target="_blank"
+	>
+		<label for="bd-email">Let's make your inbox more interesting!</label>
+		<div class="input-group">
+			<input type="email" name="email" id="bd-email" placeholder="you@example.com" required />
+			<input type="submit" value="Subscribe" />
+		</div>
+		<p class="powered-by">
+			<a href="https://buttondown.com/refer/thatalexguy" target="_blank" rel="noopener">
+				Powered by Buttondown.
+			</a>
+		</p>
+	</form>
+</div>
+
+<style>
+	.subscribe-container {
+		max-width: 100%;
+		margin: 56px 0 0;
+		padding: 36px;
+		background: var(--paper);
+		border: 1px solid var(--hairline);
+		border-radius: 8px;
+	}
+	.subscribe-container .section-label {
+		margin-bottom: 16px;
+	}
+	.subscribe-form {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	.subscribe-form label {
+		font-family: var(--font-serif);
+		font-size: 17.5px;
+		line-height: 1.4;
+		color: hsl(var(--theme-text));
+	}
+	.input-group {
+		display: flex;
+		gap: 12px;
+	}
+	.subscribe-form input[type="email"] {
+		flex: 1;
+		padding: 12px 16px;
+		font-family: var(--font-sans);
+		font-size: 16px;
+		color: hsl(var(--theme-text));
+		background: hsl(var(--theme-bg));
+		border: 1px solid var(--hairline);
+		border-radius: 6px;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+	.subscribe-form input[type="email"]:focus {
+		outline: none;
+		border-color: hsl(var(--theme-accent));
+		box-shadow: 0 0 0 1px hsl(var(--theme-accent));
+	}
+	.subscribe-form input[type="submit"] {
+		font-family: var(--font-mono);
+		font-size: 13px;
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		text-transform: capitalize;
+		color: hsl(var(--theme-bg));
+		background: hsl(var(--theme-accent));
+		border: none;
+		border-radius: 6px;
+		padding: 0 24px;
+		cursor: pointer;
+		transition: opacity 0.2s ease, transform 0.2s ease;
+		-webkit-appearance: none;
+	}
+	.subscribe-form input[type="submit"]:hover,
+	.subscribe-form input[type="submit"]:focus-visible {
+		opacity: 0.9;
+	}
+	.subscribe-form input[type="submit"]:active {
+		transform: scale(0.98);
+	}
+	.powered-by {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		color: hsl(var(--theme-text-muted) / 0.8);
+		margin: 4px 0 0;
+	}
+	.powered-by a {
+		color: inherit;
+		text-decoration: underline;
+		text-decoration-color: var(--hairline);
+		text-underline-offset: 4px;
+		transition: color 0.2s ease, text-decoration-color 0.2s ease;
+	}
+	.powered-by a:hover {
+		color: hsl(var(--theme-accent));
+		text-decoration-color: hsl(var(--theme-accent));
+	}
+
+	@media (max-width: 520px) {
+		.subscribe-container {
+			padding: 24px;
+		}
+		.input-group {
+			flex-direction: column;
+		}
+		.subscribe-form input[type="submit"] {
+			padding: 14px 24px;
+		}
+	}
+</style>

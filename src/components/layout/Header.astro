@@ -6,6 +6,7 @@ import ThemeToggle from "../ThemeToggle.astro";
 
 const url = new URL(Astro.request.url);
 const wordmark = siteConfig.title;
+const avatar = siteConfig.profile?.avatar;
 
 const visibleMenuLinks = menuLinks.filter((link) => {
 	if (link.path === "/showcase/" && showcase.length === 0) return false;
@@ -30,7 +31,9 @@ const navIcons: Record<string, string> = {
 ---
 
 <header class="site-header" id="main-header">
-	<a href={withBase("/")} class="wordmark">{wordmark}</a>
+	<a href={withBase("/")} class="wordmark">
+      {avatar ? <img src={avatar} class="rounded-full" loading="lazy" alt="Avatar" width="48" /> : wordmark}
+    </a>
 	<div class="header-right">
 		<nav class="nav" aria-label="Primary">
 			{
@@ -63,7 +66,7 @@ const navIcons: Record<string, string> = {
 <style>
 	.site-header {
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		justify-content: space-between;
 		gap: 24px;
 		margin-bottom: 72px;

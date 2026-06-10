@@ -365,6 +365,7 @@ ul.work-list a:focus-visible {
 	.post-main > .post-article,
 	.post-main > .share,
 	.post-main > .post-pager,
+	.post-main > .subscribe-container,
 	.post-main > .comments {
 		animation: intro-fade-up 380ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
 		animation-delay: calc(var(--i, 0) * 55ms);
@@ -392,7 +393,8 @@ ul.work-list a:focus-visible {
 	.post-main > .post-article { --i: 5; }
 	.post-main > .share { --i: 6; }
 	.post-main > .post-pager { --i: 7; }
-	.post-main > .comments { --i: 8; }
+	.post-main > .subscribe-container { --i: 8; }
+	.post-main > .comments { --i: 9; }
 }
 
 @media (prefers-reduced-motion: reduce) {

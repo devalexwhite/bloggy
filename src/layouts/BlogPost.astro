@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import ShareButtons from "@/components/blog/ShareButtons.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
 import SuggestedLinks from "@/components/SuggestedLinks.astro";
+import SubscribeForm from "@/components/blog/SubscribeForm.astro";
 import { getAllPosts, sortMDByDate } from "@/data/post";
 import { siteConfig } from "@/site-config";
 import { formatBylineDate, formatEyebrowDate } from "@/utils/date";
@@ -135,9 +136,12 @@ const giscusThemes = import.meta.env.PROD
 				</section>
 			)}
 
+            <SubscribeForm />
+
 			<ShareButtons title={title} url={postUrl} description={description} />
 
 			<WebMentions />
+
 
 			<hr class="rule rule--footer" />
 

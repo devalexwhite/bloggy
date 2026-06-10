@@ -7,6 +7,7 @@ import { formatRailDate, formatStampDate } from "@/utils/date";
 import { absoluteUrl, withBase } from "@/utils/path";
 import { Schema } from "astro-seo-schema";
 import SuggestedLinks from "@/components/SuggestedLinks.astro"
+import SubscribeForm from "@/components/blog/SubscribeForm.astro"
 
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts);
@@ -208,6 +209,10 @@ const siteUrl = (path: string) => absoluteUrl(path, Astro.site);
 			</ul>
 		</section>
 	)}
+
+    <section class="subscribe mb-20">
+      <SubscribeForm />
+    </section>
 </PageLayout>
 
 <style>

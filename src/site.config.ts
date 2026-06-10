@@ -16,7 +16,7 @@ export const siteConfig: SiteConfig = {
       pingback: "https://webmention.io/thatalexguy.dev/xmlrpc"
     },
 	description:
-		"I'm Alex, this is my site. It's my place to write, create web experiments and share things I enjoy.",
+		"I'm Alex, an old-school maker of technology things. I make software, shoot photos and hack on vintage computers.",
 	lang: "en-US",
 	ogLocale: "en_US",
 	sortPostsByUpdatedDate: false,
@@ -28,7 +28,7 @@ export const siteConfig: SiteConfig = {
 		codeberg: "https://codeberg.org/thatalexguy",
 		jobTitle: "Engineering Manager",
 		alumni: "Ohio University",
-		avatar: "/avatar.png",
+		avatar: "/avatar.webp",
 	},
 	// Uncomment & fill in to enable Giscus comments on every post.
 	comments: {
