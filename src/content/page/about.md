@@ -5,7 +5,7 @@ suggestedLinks:
 - title: "What I use"
   url: "/what-i-use"
 - title: "Now"
-  url: "/now"
+  url: "/me-now"
 - title: "Support me"
   url: "/support"
 - title: "Hire me"
