@@ -8,7 +8,7 @@ import { toString as mdastToString } from "mdast-util-to-string";
 import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
-const Admonitions = new Set<AdmonitionType>(["tip", "note", "important", "caution", "warning"]);
+const Admonitions = new Set<AdmonitionType>(["tip", "note", "important", "caution", "warning", "info"]);
 
 function isAdmonition(s: string): s is AdmonitionType {
 	return Admonitions.has(s as AdmonitionType);

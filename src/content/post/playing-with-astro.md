@@ -1,6 +1,6 @@
 ---
 title: Playing with Astro
-publishDate: 2026-07-09
+publishDate: 2026-06-09
 description: A new month means a new blog!
 tags: [software, announcements]
 ---

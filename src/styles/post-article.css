@@ -203,6 +203,40 @@
 		all: unset;
 	}
 
+	.post-article .aside {
+		margin: 28px 0;
+		padding: 18px 22px;
+		border-radius: 6px;
+		border: 1px solid var(--hairline);
+		border-left: 4px solid hsl(var(--theme-accent));
+		background: var(--paper);
+		max-width: var(--reading-width);
+	}
+	.post-article .aside-title {
+		margin: 0 0 8px;
+		font-family: var(--font-sans);
+		font-weight: 600;
+		font-size: 14.5px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: hsl(var(--theme-text));
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+	.post-article .aside-content {
+		color: hsl(var(--theme-text-muted));
+	}
+	.post-article .aside-content p {
+		margin: 0 0 10px;
+		font-size: 16.5px;
+		line-height: 1.6;
+		max-width: none;
+	}
+	.post-article .aside-content p:last-child {
+		margin-bottom: 0;
+	}
+
 	/* Predictable sizing prevents CLS */
 	.post-article figure {
 		margin: 36px 0;

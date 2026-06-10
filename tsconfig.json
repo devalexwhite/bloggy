@@ -32,7 +32,9 @@
       "@/site-config": [
         "src/site.config.ts"
       ]
-    }
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
   "exclude": [
     "node_modules",

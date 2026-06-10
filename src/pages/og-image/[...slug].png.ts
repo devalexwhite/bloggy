@@ -81,7 +81,7 @@ export async function GET(context: APIContext) {
 			byline: bylineParts.join(SEP),
 			tagsLine: tags.join(SEP),
 			host,
-		}),
+		}) as any,
 		ogOptions,
 	);
 	const png = new Resvg(svg).render().asPng();
