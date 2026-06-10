@@ -4,6 +4,8 @@ description: About That Alex Guy
 suggestedLinks:
 - title: "What I use"
   url: "/what-i-use"
+- title: "Now"
+  url: "/now"
 - title: "Support me"
   url: "/support"
 - title: "Hire me"
