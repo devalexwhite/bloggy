@@ -7,6 +7,6 @@ I'm pretty dang good at turning ideas into products and have been doing it for q
 
 I currently have spots available for contract work (via my LLC [Darn Fine Software](https://darnfinesoftware.com)), feel free to [send me an email to discuss](mailto:hi@thatalexguy.dev)!
 
-I'm also open to full-time positions (given the right oppurtunity). I am **not** interested in hybrid/in-office roles at this time.
+I'm also open to full-time positions (given the right opportunity). I am **not** interested in hybrid/in-office roles at this time.
 
 [Download Résumé](/files/resume_alex_white.pdf)

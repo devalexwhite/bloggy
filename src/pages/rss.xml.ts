@@ -21,8 +21,10 @@ export const GET = async () => {
 			});
 
 			if (post.data.readOnWeb) {
-				content = `<p>While most of my posts work great in RSS readers, this post contains elements that do not work so well! Please view the post on my site here: <a href="${postUrl}">${postUrl}</a></p><br/><hr><br/><h2>Post summary</h2><p>${post.data.description}</p>`;
+				content = `<p>While most of my posts work great in RSS readers, this post contains elements that do not work so well! Please view the post on my site here: <a href="${postUrl}">${postUrl}</a></p><br/><hr><br/><h2>Post Summary:</h2><p>${post.data.description}</p>`;
 			}
+
+        content += "<br/><br/><p>Thanks for reading on RSS, you're awesome!</p> <p>If you want to be notified of new posts even faster, I have a newsletter as well, you can <a href='https://buttondown.com/thatalexguy'>signup here!</a></p>";
 
 			return {
 				title: post.data.title,
