@@ -10,6 +10,7 @@ import { getAllPosts, sortMDByDate } from "@/data/post";
 import { siteConfig } from "@/site-config";
 import { formatBylineDate, formatEyebrowDate } from "@/utils/date";
 import { absoluteUrl, withBase } from "@/utils/path";
+import { getGoatCounterHits } from "@/utils/analytics";
 
 import BaseLayout from "./Base.astro";
 import { Schema } from "astro-seo-schema";
@@ -47,6 +48,21 @@ const bylineDate = formatBylineDate(publishDate);
 // Prefer remark plugin's value; fall back to "".
 const readingTime: string =
 	(remarkPluginFrontmatter as { minutesRead?: string })?.minutesRead ?? "";
+
+let readersCount = 0;
+try {
+	const hitsData = await getGoatCounterHits();
+	const postHits = hitsData?.hits?.filter((h: any) =>
+		h.path === `/posts/${slug}/` ||
+		h.path === `/posts/${slug}` ||
+		h.path === `/posts/${slug}/undefined`
+	);
+	if (postHits && postHits.length > 0) {
+		readersCount = postHits.reduce((acc: number, h: any) => acc + h.count, 0);
+	}
+} catch (error) {
+	console.error("Failed to fetch Goatcounter analytics:", error);
+}
 
 // Custom giscus themes only in prod: the giscus.app iframe can't fetch CSS from localhost / private IPs.
 const giscusThemes = import.meta.env.PROD
@@ -88,6 +104,10 @@ const giscusThemes = import.meta.env.PROD
 					{authorName && <>By {authorName}<span class="sep">·</span></>}{bylineDate}{readingTime && (
 						<>
 							<span class="sep">·</span>{readingTime}
+						</>
+					)}{readersCount > 0 && (
+						<>
+							<span class="sep">·</span>{readersCount} reader{readersCount > 1 ? 's' : ''}
 						</>
 					)}
 				</p>

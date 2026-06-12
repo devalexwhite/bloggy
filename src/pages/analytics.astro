@@ -1,0 +1,63 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+import AnalyticsCharts from "@/components/AnalyticsCharts";
+
+const meta = {
+	description: "Website analytics.",
+	title: "Analytics",
+};
+
+// Start time is 30 days ago
+const start = new Date();
+start.setDate(start.getDate() - 30);
+const startISO = start.toISOString();
+const endISO = new Date().toISOString();
+
+const headers = {
+	"Authorization": `Bearer ${import.meta.env.GOATCOUNTER_API_KEY}`,
+	"Content-Type": "application/json"
+};
+
+let totalData = null;
+let topPagesData = null;
+let topRefsData = null;
+
+try {
+	const [totalRes, hitsRes, refsRes] = await Promise.all([
+		fetch(`https://thatalexguy.goatcounter.com/api/v0/stats/total?start=${encodeURIComponent(startISO)}&end=${encodeURIComponent(endISO)}`, { headers }),
+		fetch(`https://thatalexguy.goatcounter.com/api/v0/stats/hits?start=${encodeURIComponent(startISO)}&end=${encodeURIComponent(endISO)}&limit=10`, { headers }),
+		fetch(`https://thatalexguy.goatcounter.com/api/v0/stats/toprefs?start=${encodeURIComponent(startISO)}&end=${encodeURIComponent(endISO)}&limit=10`, { headers })
+	]);
+
+	if (totalRes.ok) totalData = await totalRes.json();
+	if (hitsRes.ok) topPagesData = await hitsRes.json();
+	if (refsRes.ok) topRefsData = await refsRes.json();
+} catch (error) {
+	console.error("Failed to fetch Goatcounter analytics:", error);
+}
+---
+
+<PageLayout meta={meta}>
+	<section class="page-content" aria-labelledby="page-label">
+		<div class="section-label" id="page-label">Analytics</div>
+		<div class="post-article w-full flex flex-col items-center">
+			<AnalyticsCharts 
+				client:load 
+				totalData={totalData} 
+				topPagesData={topPagesData} 
+				topRefsData={topRefsData} 
+			/>
+		</div>
+	</section>
+</PageLayout>
+
+<style>
+	.page-content {
+		margin-bottom: 64px;
+	}
+	/* Ensure full width for charts */
+	.post-article {
+		width: 100%;
+		max-width: 100%;
+	}
+</style>
