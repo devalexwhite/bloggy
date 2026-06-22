@@ -51,7 +51,7 @@ const readingTime: string =
 
 let readersCount = 0;
 try {
-	const hitsData = await getGoatCounterHits();
+	const hitsData = getGoatCounterHits();
 	const postHits = hitsData?.hits?.filter((h: any) =>
 		h.path === `/posts/${slug}/` ||
 		h.path === `/posts/${slug}` ||

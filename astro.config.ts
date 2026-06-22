@@ -112,7 +112,7 @@ export default defineConfig({
         optimizeDeps: {
             exclude: ["@resvg/resvg-js"],
         },
-        plugins: [rawFonts([".ttf", ".woff"])],
+        plugins: [rawFonts([".ttf", ".woff"]), goatcounterHitsPlugin()],
     },
 });
 
@@ -127,6 +127,65 @@ function rawFonts(ext: string[]) {
                     code: `export default ${JSON.stringify(buffer)}`,
                     map: null,
                 };
+            }
+        },
+    };
+}
+
+function goatcounterHitsPlugin() {
+    // Read the API key from .env file or process.env at plugin init time.
+    // Vite doesn't merge .env values into process.env in plugin context,
+    // so we parse the file directly.
+    let apiKey = process.env.GOATCOUNTER_API_KEY;
+    if (!apiKey) {
+        try {
+            const envFile = fs.readFileSync(new URL(".env", import.meta.url), "utf8");
+            const match = envFile.match(/^GOATCOUNTER_API_KEY=(.+)$/m);
+            if (match) apiKey = match[1]!.trim().replace(/^["']|["']$/g, "");
+        } catch { /* no .env file */ }
+    }
+
+    let fetchPromise: Promise<any> | null = null;
+
+    function getHits() {
+        if (!fetchPromise) {
+            if (!apiKey) {
+                fetchPromise = Promise.resolve(null);
+            } else {
+                const startISO = new Date("2020-01-01").toISOString();
+                const endISO = new Date().toISOString();
+                fetchPromise = fetch(
+                    `https://thatalexguy.goatcounter.com/api/v0/stats/hits?start=${encodeURIComponent(startISO)}&end=${encodeURIComponent(endISO)}&limit=1000`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${apiKey}`,
+                            "Content-Type": "application/json",
+                        },
+                    },
+                )
+                    .then((res) => res.json())
+                    .catch((err) => {
+                        console.error("Failed to fetch Goatcounter hits:", err);
+                        fetchPromise = null; // allow retry on next build
+                        return null;
+                    });
+            }
+        }
+        return fetchPromise;
+    }
+
+    return {
+        name: "vite-plugin-goatcounter-hits",
+        // No buildStart — that hook also fires during `astro sync`, where the
+        // network may not be reachable. Fetching lazily in load() means we only
+        // hit the API when pages actually import the virtual module (build only).
+        resolveId(id: string) {
+            if (id === "virtual:goatcounter-hits") return "\0virtual:goatcounter-hits";
+        },
+        async load(id: string) {
+            if (id === "\0virtual:goatcounter-hits") {
+                const data = await getHits();
+                return `export default ${JSON.stringify(data)};`;
             }
         },
     };
